@@ -33,7 +33,21 @@ The next challenge is to figure out the "End" d coordinate as well as target vel
      - The vehicle will change lanes and then follow longitudinal
        behavior for the "KL" state in the new lane.
 
-The "update_state" function figures out the next state based on the sensor fusion data. The "realize_state" function calculates the required acceleration and lane values based on the sensor fusion data. 
+The "update_state" function figures out the next state based on the sensor fusion data. The "realize_state" function calculates the required acceleration and target lane values based on the sensor fusion data. 
+
+Based on the current state, the decision for lane change is based on cost calculations for each of the possible states. For this project, the cost is based on: 
+
+1. Target velocity based on the car in front (in the target lane) - To avoid slower lanes
+2. Predicted collision with any vehicles around
+3. Lane change has a 10% higher cost than Keep-lane (This is to prevent constant lane changes for small benefits)
+4. Illegal target lane values which will cause the car to drive off the road or across the yellow line
+
+When a lane change is initiated, a flag called "changing_lane" is set to prevent any new state to be realized till the lane change is complete (car's d ~ target d). 
+
+## Results
+
+The car was able to go on for more that 4.32 miles without any incident. The average speed of my car was 47 MPH. It succesfully navigated itself around if there were slow cars in front. If such a lane change was not safe, it just maintained a distance of 30m behind the car in front.
+
 
 
 
