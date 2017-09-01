@@ -49,14 +49,14 @@ When a lane change is initiated, a flag called "changing_lane" is set to prevent
 The car was able to go on for more that 4.32 miles without any incident. The average speed of my car was 47 MPH. It succesfully navigated itself around if there were slow cars in front. If such a lane change was not safe, it just maintained a distance of 30m behind the car in front.
 
 
-<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_1.png" width="30%">
+<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_1.png" width="70%">
 
-<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_2.png" width="30%">
+<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_2.png" width="70%">
 
-<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_3.png" width="30%">
+<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_3.png" width="70%">
 
-<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_4.png" width="30%">
+<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_4.png" width="70%">
 
-<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_5.png" width="30%">
+<img src="https://github.com/bhatiaabhishek/CarND-Path_Planning/blob/master/images/Car_Img_5.png" width="70%">
 
 
