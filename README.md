@@ -20,7 +20,20 @@ The highway's waypoints loop around so the frenet s value, distance along the ro
 4. Run it: `./path_planning`.
 
 ## Trajectory Generation
-To be able to change lanes without exceeding the max jerk, I use the spline interpolation library to generate a smooth set of points between given start and intermediate points. For each iteration, two start points are obtained from car's previous coordinates. I convert the start points to frenet coordinates to obtain s and d values. This helps me derive a set of three end points of the trajectory (more on this later). I convert all the five points of the trajectory to car's coordinates before generating spline. This is done because the library has a limitation that x should be monotonically increasing. Once we have the spline, we can generate a set of 50 coordinates to pass it to the simulator.
+To be able to change lanes without exceeding the max jerk value, I use the spline interpolation library to generate a smooth set of points between given start and intermediate points. For each iteration, two start points are obtained from car's previous coordinates. I convert the start points to frenet coordinates to obtain s and d values. Refer [here](https://en.wikipedia.org/wiki/Frenet%E2%80%93Serret_formulas) for frenet system. This helps me derive a set of three end points of the trajectory (more on this later). I convert all the five points of the trajectory to car's coordinates before generating spline. This is done because the library has a limitation that x should be monotonically increasing. Once I have the spline, I generate a set of 50 coordinates that is passed onto the simulator.
+
+## Path Planning
+The next challenge is to figure out the "End" d coordinate as well as target velocity/acceleration for our trajectory every cycle. This is done using a state machine with 3 states:
+
+
+"KL" - Keep Lane
+     - The vehicle will attempt to drive its target speed, unless there is 
+       traffic in front of it, in which case it will slow down. (provides negative acceleration)
+"LCL" or "LCR" - Lane Change Left / Right
+     - The vehicle will change lanes and then follow longitudinal
+       behavior for the "KL" state in the new lane.
+
+The "update_state" function figures out the next state based on the sensor fusion data. The "realize_state" function calculates the required acceleration and lane values based on the sensor fusion data. 
 
 
 
